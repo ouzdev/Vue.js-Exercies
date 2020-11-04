@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!--MouseMove= Fare imleci üzerine geldiğinde tetiklenen event-->
+<div id="app">
+  <p v-on:mousemove="mouseMove">Koordinat Bilgisi : {{X}},{{Y}}</p>
+</div>
+<!--
+  * MouseMove= Fare imleci üzerine geldiğinde tetiklenen event
+  * Vue.Js içerisinde bu tür event işlemlerini "v-on" directive ile yapıyoruz.
+  * JS tarafında X koordinatına "event.clientX" Y koordinatına ise "event.clientY" ile ulaşılıyor.
+-->
+
+<script>
+    new Vue({
+	el:"#app",
+  data:{
+  	X:0,
+    Y:0,
+  },
+  methods:{
+  mouseMove:function(event)
+  {
+ 		this.X=event.clientX;
+    this.Y=event.clientY;
+ 
+  },
+  }
+ 
+});
+</script>

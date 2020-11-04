@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="exercise">
+  <input type="text" v-bind:value="name">
+  <p>Vue.JS Muazzam Bir Framework - {{name}} ({{age}})</p>
+  <p>{{age*5}}</p>
+  <p>{{randomDigit()}}</p>
+
+  <img v-bind:src="imgLink">
+</div>
+
+<script>
+    new Vue({
+		el:"#exercise",
+    data:{
+    	name:"Oğuzcan Genç",
+      age:22,
+      imgLink:"https://avatars1.githubusercontent.com/u/58696651?s=460&u=b2b644879c3772b62bc25799865522d8065889ee&v=4"
+    },
+    methods:{
+      randomDigit:function()
+      {
+      return Math.random()*1;
+      }
+    }
+});
+
+</script>
+
+

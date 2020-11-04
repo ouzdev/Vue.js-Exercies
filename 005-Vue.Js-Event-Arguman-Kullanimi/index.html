@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+<p>Fareyi Sayının Üzerine Getir</p>
+  <p v-on:mousemove="arttir(1,$event)">Sayı : {{sayi}}</p>
+</div>
+<!--
+    * Burada arttir() function ile fonksiyona hem argüman gönderdik hemde event bilgisini göndermiş olduk.
+    * Normalde default olarak "arttir" gibi kullanım yapsaydık event'ı function parametresinde kullanabilecektik.
+    * Ama argüman tanımlaması yapıldığı için argüma içinde "$event" olarak belirtilmesi gerekiyor.
+    * Bu kullanımda sıra farketmiyor ama function içindeki dizilim aynı argüman gibi olmalıdır.
+
+-->
+<script>
+    new Vue({
+el:"#app",
+data:{
+sayi:0,
+},
+methods:{
+arttir:function(sayi,event)
+{
+	this.sayi+=sayi;
+}
+}
+
+});
+</script>
