@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+<!--
+* :class="{key:value}"
+* Key => bizim bind etmek istediğimiz class ın adını verir.
+* Value ise hangi şart olduğunda ben bu key (classı yani) buna ekliyim şeklinde olacaktır.
+-->
+  <div 
+    @click="tiklandi=!tiklandi"
+  :class="{yellow:tiklandi}" class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+
+<script>
+    new Vue({
+	el:"#app",
+  data:{
+  	tiklandi:true,
+  },
+});
+</script>

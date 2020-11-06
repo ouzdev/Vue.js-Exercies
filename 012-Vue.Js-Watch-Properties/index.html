@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<div id="app">
+<button v-on:click="counter++">Arttır</button> <button v-on:click="counter--">Azalt</button> <button v-on:click="secondaryCounter++">2. Counter'ı Artır</button>
+<p>Sayaç : 1.Counter {{counter}} | 2.Counter {{secondaryCounter}}</p>
+<p>{{result()}} | {{output}} </p>
+</div>
+
+<!--
+    * Watch herşeyden önce Asenkron yapısı sayesinde belirli bir zaman sonra (Kendimiz belirliyoruz bu zamanı istersek)çalışma zamanında bazı aksiyonlar alabilmemizi sağlar.
+    * Default değer olarak "value" alır. (orn => name:{ function(value) {console.log(value) } }).
+    * Watch kullanmak için kullanıcak property "data" içinde tanımlanmalıdır.
+    * Buradaki örnekte counter porpertysini arttırdığımda Watch ile 1500 ms sonra counter propertsini sıfırladım.
+-->
+
+<script>
+    new Vue({
+	el:"#app",
+  data:{
+  		counter:0,
+      secondaryCounter:0,
+  },
+  methods:{
+  result:function(){
+  console.log("Metod Çalıştı");
+  		return this.counter < 10 ? "10'dan küçük":"10'dan büyüktür"
+  }
+  },
+  computed:{
+  output:function(){
+  console.log("Computed Çalıştı");
+  	return this.counter < 10 ? "10'dan küçük":"10'dan büyüktür"
+  },
+  },
+  watch:{
+counter:function()
+{
+//Burada this'i vm'e aktarma sebebim setTimeout metodunun yapısı gereği vue ınstance'ının data içindeki counter propertysine ulaşmak için this'i vm değişkenine alıp bunu setTimeout içinde "vm.counter" (bu illaki counter olacak değil farklı bir property de olabilirdi.) olarak tanımlayıp değerini değiştirmem gerekiyor.
+		vm=this;
+	setTimeout(function(){
+  	vm.counter=0;
+  },1500);
+}
+
+},
+});
+</script>

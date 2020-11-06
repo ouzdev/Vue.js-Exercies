@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">  
+<!--Birinci yol bir function kullanarak sayıyı arttırabiliriz -->
+    <button v-on:click="pressButton">Function Kullanarak Arttır</button>
+     <p>{{counter}}</p>
+     
+<!--İkinci yol bir Themplate içerisinde JS kodu kullanarark sayıyı arttırabiliriz -->
+    <button v-on:click="counter++">Themplate İçerisinde JS Kodu Kullanarak Arttır.</button>
+    <p>{{counter}}</p>
+<!--Themplate içerisinde if koşulu tanımlama örneği -->
+<p>Burada İf Koşulu Sayı 10'dan büyük yada küçükse kontrolü yapar</p>
+    <p>{{counter > 10 ? "Sayı 10'dan Büyüktür.":"Sayı 10'dan Küçüktür."}}</p>
+</div>
+<!--
+    * Themplate içerisinde sadece tek satırlık JS kodu çalıştırabiliriz.
+    * String Interpolition içerisinde de tek satırlık JS kodu çalıştırabilirim.
+    
+-->
+
+<script> 
+new Vue({
+		el:"#app",
+    data:{
+    	counter:1,
+    },
+    methods:{
+    	pressButton:function(event)
+      {
+   this.counter++;
+      }
+    },
+    
+
+});
+</script>

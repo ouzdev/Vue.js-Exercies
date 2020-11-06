@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="alertShow">Alert Kutusu</button><br><br>
+  
+  <input type="text" v-on:keydown.down.input="writeText">
+  <p>{{value}}</p>
+  
+   <input type="text" v-on:keydown.enter.input="writeTextEnter">
+  <p>{{value}}</p>
+  
+</div>
+
+<script>
+    new Vue({
+		el:"#app",
+    data:{
+    value:""
+    
+    },
+    methods:{
+    alertShow:function()
+    {
+    alert("Butona Tıklandı");
+    },
+    writeText:function(event)
+    {
+    this.value=event.target.value;
+    },
+    writeTextEnter:function(event)
+    {
+    this.value=event.target.value;
+    }
+    
+    },
+
+});
+</script>

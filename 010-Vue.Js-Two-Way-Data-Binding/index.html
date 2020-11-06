@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<div id="app">
+<!--V-Model Directive kullanarak 2 yönlü veri bağlama-->
+  <input type="text" v-model="name">
+  <p>{{name}}</p>
+</div>
+
+<!--
+    * V-model Two-Wat Data Binding işlemlerinde kullanılan bir directive'dir.
+    * Instance içerisinde bir property'i alarak bu property ile iki yönlü veri bind eder.
+    * Inputun etki etmesi gereken property'i v-model="property" olarak yazarak data bind işlemini sağlayabiliriz.
+-->
+
+<script>
+    new Vue({
+	el:"#app",
+  data:{
+  	name:"Oğuzcan Genç",
+  },
+});
+</script>

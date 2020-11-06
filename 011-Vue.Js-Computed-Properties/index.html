@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<div id="app">
+<button v-on:click="counter++">Arttır</button> <button v-on:click="counter--">Azalt</button> <button v-on:click="secondaryCounter++">2. Counter'ı Artır</button>
+<p>Sayaç : 1.Counter {{counter}} | 2.Counter {{secondaryCounter}}</p>
+<p>{{result()}} | {{output}} | {{output2}}</p>
+</div>
+
+<!--
+    * Burada arttır butonuna basıldığında "counter" 1 artıcak ve dolayısı ile result() metodu çalışacaktır.
+    * 2. Counter'ı Arttır butonuna tıklandığında ise yine result() metodu çalışacak nedeni sayfada bir property değiştiğinde
+    otomatik olarak sayfa yeniden render edileceği için her seferinde result() metodu çalışacaktır.
+    * Computed metodların normal metodlara karşı farkı sadece computed metod içerisinde hangi property tanımlanmış ve o property
+    themplate de değiştiyse computed metod çalışır. Örnekte Computed metodun içerisinde geçen "counter" propertysi eğer değişirse
+    computed metod çalışır. Eğer "counter" property si değişmemişse o computed metod çalışmaz. Buda performans için önemli bir unsurdur.
+    * Peki Computed Asenkron mudur ? Hayır değildir. Senkron bir yapıya sahiptir. Asenkron olan "Watch"dur Computed'a arternatiftir.
+
+-->
+
+<script>
+    new Vue({
+	el:"#app",
+  data:{
+  		counter:0,
+      secondaryCounter:0,
+  },
+  methods:{
+  result:function(){
+  console.log("Metod Çalıştı");
+  		return this.counter < 10 ? "10'dan küçük":"10'dan büyüktür"
+  }
+  },
+  computed:{
+  output:function(){
+  console.log("Computed Çalıştı");
+  	return this.counter < 10 ? "10'dan küçük":"10'dan büyüktür"
+  },
+  output2:function(){
+  console.log("output2 Çalıştı");
+  	
+  }
+  }
+});
+</script>
