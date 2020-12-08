@@ -13,6 +13,6 @@
 - **009** - Vue.Js Event ile yapılmış kodlama pratikleri içermektedir.
 - **010** - Vue.Js iki yönlü veri bağlamaya giriş yapıldı.
 - **011** - Computed(Hesaplanan özellik) property ile çalışılmıştır.
-- **012** - Watch propery ile çalışılmıştır.
+- **012** - Watch property ile çalışılmıştır.
 - **013** - Re-Activity konusunu kavramak için yapılan homework.
 - **014** - CSS stilleri üzerinde çalışılmıştır. CSS stillerinin Vue.Js ile değiştirilmesine değinilmiştir.
